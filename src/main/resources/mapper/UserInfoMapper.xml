@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lhh.demo.dao.UserInfoMapper" >
+    <insert id="addUserInfo" parameterType="com.lhh.demo.pojo.UserInfo" >
+        insert into userinfo values(#{openId},#{nikeName},#{gender},#{city},#{province},#{country},#{language},#{chooseCities});
+    </insert>
+
+    <delete id="deleteUserInfo">
+        delete from userinfo where openId = #{openId};
+    </delete>
+
+    <update id="updateUserAllInfo" parameterType="com.lhh.demo.pojo.UserInfo" >
+        update userinfo set
+        nikeName=#{nikeName},
+        gender=#{gender},
+        city=#{city},
+        province=#{province},
+        country=#{country},
+        language=#{language},
+        chooseCities=#{chooseCities}
+        where openId = #{openId};
+    </update>
+
+    <update id="updateUserCitiesInfo" parameterType="com.lhh.demo.pojo.UserInfo" >
+        update userinfo set
+        chooseCities=#{chooseCities}
+        where openId= #{openId};
+    </update>
+
+    <select id="searchUserInfo" resultType="com.lhh.demo.pojo.UserInfo">
+        select * from userinfo where openId = #{openId};
+    </select>
+
+    <select id="searchUserInfoList" resultType="com.lhh.demo.pojo.UserInfo">
+        select * from userinfo;
+    </select>
+</mapper>

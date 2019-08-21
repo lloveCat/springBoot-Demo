@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lhh.demo.dao.LoginRecordMapper" >
+    <insert id="add" parameterType="com.lhh.demo.pojo.LoginRecord" >
+        insert into loginRecord(userId,loginTime) values(#{userId},#{loginTime});
+    </insert>
+
+    <select id="findForOnePerson" resultType="com.lhh.demo.pojo.LoginRecord">
+        select * from loginRecord where id = #{userId};
+    </select>
+
+    <select id="findAll" resultType="com.lhh.demo.pojo.LoginRecord">
+        select * from loginRecord;
+    </select>
+</mapper>
