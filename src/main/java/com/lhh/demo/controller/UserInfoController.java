@@ -10,6 +10,7 @@ import com.lhh.demo.util.ResultInfo;
 import com.lhh.demo.util.UserInfoUtil;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -41,7 +42,7 @@ public class UserInfoController {
         ResultInfo result = null;
         LoginInfo loginInfo = null;
         LoginRecord loginRecord = null;
-        if (code == null || "".equals(code)) {
+        if (StringUtils.isEmpty(code)) {
             throw new NullCodeException("凭证为空");
         }
         loginInfo = userInfoUtil.getSessionKeyOrOpenId(code);
@@ -49,7 +50,6 @@ public class UserInfoController {
         Timestamp loginDate = new Timestamp((new Date()).getTime());
         String dateString = (new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")).format(loginDate);
         loginRecord = new LoginRecord(loginInfo.getOpenid(), dateString);
-        loginRecordService.addLoginRecord(loginRecord);
 
         //用户记录
         userInfo.setOpenId(loginInfo.getOpenid());
@@ -57,6 +57,9 @@ public class UserInfoController {
         if (exitUserInfo == null) {
             userInfoService.addUserInfo(userInfo);
         }
+
+        loginRecordService.addLoginRecord(loginRecord);
+
         //生成session3rdKey
 //              String session3rdKey = UUID.randomUUID().toString().replaceAll("-", "");     //对本次登录用户生成服务sessionKey
         HttpSession session = userInfoUtil.getSession();
