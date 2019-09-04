@@ -1,11 +1,19 @@
 package com.lhh.demo.util;
 
 import ch.qos.logback.classic.pattern.SyslogStartConverter;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import java.lang.reflect.Method;
 
 //注解测试,使用自定义注解模拟SprintMVC 路由请求调用函数
+@Service
+@Controller
+@Repository
 public class AnnotationTest {
     public static final int INVOKE_ERROR = 0;
     public static final int INVOKE_SUCCESS = 1;

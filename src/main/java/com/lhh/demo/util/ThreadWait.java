@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 //史上的生产者消费者模式
@@ -60,7 +62,7 @@ public class ThreadWait {
 //        }
 //        consumer.start();
 //        n = 100;
-//        FutureTask ft = new FutureTask<>(new MyCallable());   //FutureTask实际上是一个runnable和future接口的实现类,实际在run方法中调用callable的call方法
+        FutureTask ft = new FutureTask<>(new MyCallable());   //FutureTask实际上是一个runnable和future接口的实现类,实际在run方法中调用callable的call方法
 //                                                            //并将返回值记录在成员变量中，达到有返回值的线程。并实现Future任务的接口功能，如取消任务（线程interrupt）等
 //        new Thread(ft).start();
 //        System.out.println("main Thread");

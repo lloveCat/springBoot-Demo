@@ -4,6 +4,9 @@ server:
     max-threads: 200
     uri-encoding: "UTF-8"
 spring:
+  messages:
+    basename: language/message
+    encoding: UTF-8
   datasource:
     url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
     username: root
@@ -24,6 +27,10 @@ spring:
         max-wait: -1
         min-idle: 0
     timeout: 3000
+  main:
+    allow-bean-definition-overriding: true
+  banner:    #springboot启动显示横幅
+    location: classpath:banner/banner.txt
 mybatis:
   type-aliases-package: com.lhh.demo.pojo
   mapper-locations: classpath:mapper/*.xml

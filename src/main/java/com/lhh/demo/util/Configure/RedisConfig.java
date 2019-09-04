@@ -1,4 +1,4 @@
-package com.lhh.demo.util.Redis;
+package com.lhh.demo.util.Configure;
 
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
