@@ -3,6 +3,9 @@ package com.lhh.demo.service.serviceImpl;
 import com.lhh.demo.dao.UserInfoMapper;
 import com.lhh.demo.pojo.UserInfo;
 import com.lhh.demo.service.UserInfoService;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration;
+import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
@@ -17,8 +20,13 @@ public class UserInfoServiceImpl implements UserInfoService {           //这些
 
     @Resource
     private UserInfoMapper userInfoMapper;
+    private BeanFactory myBeanFactory;
 
-    @Cacheable(value = "user", key = "#userInfo.openId", unless = "#result gt 0")       //添加一次，后续不再添加openId相同的记录，并将本次记录保存入缓存
+    public void setMyBeanFactory(BeanFactory beanFactory) {
+        myBeanFactory = beanFactory;
+    }
+
+    @Cacheable(value = "user", key = "#userInfo.openId", unless = "#result eq null")       //添加一次，后续不再添加openId相同的记录，并将本次记录保存入缓存
     @Override
     public UserInfo addUserInfo(UserInfo userInfo) throws Exception{
         return userInfo;
@@ -48,7 +56,7 @@ public class UserInfoServiceImpl implements UserInfoService {           //这些
         return userInfoMapper.searchUserInfo(openId);
     }
 
-//    @CachePut(value = "user", key = "allUser", unless = "#result eq null")
+    @CachePut(value = "user", key = "allUser", unless = "#result eq null")
     @Override
     public List<UserInfo> searchUserList() throws Exception{
         return userInfoMapper.searchUserInfoList();

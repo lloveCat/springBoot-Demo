@@ -47,6 +47,74 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+
+            <groupId>org.activiti</groupId>
+
+            <artifactId>activiti-spring</artifactId>
+
+            <version>5.18.0</version>
+
+        </dependency>
+
+        <dependency>
+
+            <groupId>org.activiti</groupId>
+
+            <artifactId>activiti-engine</artifactId>
+
+            <version>5.18.0</version>
+
+            <exclusions>
+
+                <exclusion>
+
+                    <artifactId>slf4j-api</artifactId>
+
+                    <groupId>org.slf4j</groupId>
+
+                </exclusion>
+
+                <exclusion>
+
+                    <artifactId>spring-beans</artifactId>
+
+                    <groupId>org.springframework</groupId>
+
+                </exclusion>
+
+                <exclusion>
+
+                    <artifactId>jackson-core-asl</artifactId>
+
+                    <groupId>org.codehaus.jackson</groupId>
+
+                </exclusion>
+
+                <exclusion>
+
+                    <artifactId>commons-lang3</artifactId>
+
+                    <groupId>org.apache.commons</groupId>
+
+                </exclusion>
+
+                <exclusion>
+
+                    <artifactId>commons-lang3</artifactId>
+
+                    <groupId>org.apache.commons</groupId>
+
+                </exclusion>
+
+            </exclusions>
+
+        </dependency>
+        <dependency>
+            <groupId>commons-net</groupId>
+            <artifactId>commons-net</artifactId>
+            <version>3.6</version>
+        </dependency>
+                <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
@@ -61,6 +129,36 @@
         <dependency>
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-activemq</artifactId>
+            <version>2.0.4.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-client</artifactId>
+            <version>5.15.9</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.8.5</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.62</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.62</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sf-csim.express.print</groupId>
+            <artifactId>csim_waybill_print_service</artifactId>
+            <version>1.1.5</version>
         </dependency>
     </dependencies>
 

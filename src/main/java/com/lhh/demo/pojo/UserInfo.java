@@ -27,6 +27,13 @@ public class UserInfo implements Serializable {
                 '}';
     }
 
+    public UserInfo(String nikeName, String city, String province, String country) {
+        this.nikeName = nikeName;
+        this.city = city;
+        this.province = province;
+        this.country = country;
+    }
+
     public String getChooseCities() {
         return chooseCities == null ? "" : chooseCities;
     }

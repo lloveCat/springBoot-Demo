@@ -27,6 +27,13 @@ spring:
         max-wait: -1
         min-idle: 0
     timeout: 3000
+  activemq:
+    AMQ_PORT: 61617
+    in-memory: false
+    pool:
+      enabled: true
+      max-connections: 5
+      idle-timeout: 30000
   main:
     allow-bean-definition-overriding: true
   banner:    #springboot启动显示横幅
@@ -39,4 +46,8 @@ mybatis:
 
 WXLoginRequestUrl: https://api.weixin.qq.com/sns/jscode2session
 WXAppId: wxb491ee5a3dde60d8
+  #wxfe38157c5c5e7f76
+  #wxb491ee5a3dde60d8
 WXAppSecret: abc0e54e183e56cacb06d41c33045b64
+  #cdbc074ccb9eac4000e74a5d6ad7a495
+  #abc0e54e183e56cacb06d41c33045b64

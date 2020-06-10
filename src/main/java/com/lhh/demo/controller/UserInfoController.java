@@ -65,7 +65,7 @@ public class UserInfoController {
         HttpSession session = userInfoUtil.getSession();
         if (session.getAttribute("userLoginInfo") != null) {
             session.removeAttribute("userLoginInfo");
-        }
+        };
         session.setAttribute("userLoginInfo", loginInfo);      //app与服务器之间的sessionId映射app与微信服务器间的sessionkey
         result = ResultInfo.success("登录成功", session.getId());
         return result;
@@ -120,4 +120,5 @@ public class UserInfoController {
         result.setData(user);
         return result;
     }
+
 }

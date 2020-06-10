@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 
-@Configuration
+//@Configuration
 public class MessageSourceConfigure {   //配置类
 //    @Bean(name = "MyMessageSource")
 //    public MessageSource getMessageSource() {       //配置一个MessageSource Bean实例.
